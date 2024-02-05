@@ -9,7 +9,7 @@ import java.io.IOException;
 @SpringBootApplication
 public class AiFlksApplication {
 
-	public static String secretKey ="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";
+	public static String secretKey ="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";
 
 	public static void main(String[] args) {
 //		SpringApplication.run(AiFlksApplication.class, args);
