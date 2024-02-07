@@ -1,0 +1,16 @@
+/* CSS to make the textarea bigger */
+textarea {
+    width: 50%; /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #495057;
+    margin: 0;
+    padding: 0;
+}
+
+#responseText {
+    color:blue;
+}

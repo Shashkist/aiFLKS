@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/GPTLayout :: layout(~{::title}, ~{::body})}">
 <head>
     <meta charset="UTF-8">
     <title>GPTForm</title>
     <style>
-        /* CSS to make the textarea bigger */
-        textarea {
-            width: 50%; /* Adjust as needed */
-            height: 200px; /* Adjust as needed */
-        }
+
     </style>
 </head>
 <body>

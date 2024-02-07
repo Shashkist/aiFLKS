@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="menu" th:fragment="mainMenu">
+        <ul>
+            <li><a th:href="@{/redirect-to-queryWithText}">Query for text table</a></li>
+            <li><a th:href="@{/redirect-to-queryWithForm}">Generate with the form</a></li>
+            <li><a th:href="@{/redirect-to-queryWithImage}">Generate with the Image</a></li>
+            <li><a th:href="@{/redirect-to-justChat}">Just regular chat AI</a></li>
+        </ul>
+    </div>
+</body>
+</html>

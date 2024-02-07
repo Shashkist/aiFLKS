@@ -36,6 +36,14 @@ public class GPTController {
         return responseFromGPT;
     }
 
+
+    @GetMapping("/codeGenerationByForm")
+    public String codeGenerationByForm() {
+        return "formGPTCodeGenerator";
+    }
+
+
+
     public String sendToAI(String textQuery) {
         String response = "";
         try {
@@ -50,7 +58,7 @@ public class GPTController {
         return response;
     }
 
-    @GetMapping("/queryGPT")
+    @GetMapping("/")
     public String queryGPT() {
         return "gptForm";
     }
@@ -86,7 +94,7 @@ public class GPTController {
     }
 
 
-    //String responseFromGPT = sendToAI("hello world");
+    //String responseFromGPT = sequeryGPTndToAI("hello world");
 
 
 

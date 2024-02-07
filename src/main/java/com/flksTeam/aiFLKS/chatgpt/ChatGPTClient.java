@@ -3,7 +3,9 @@ package com.flksTeam.aiFLKS.chatgpt;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import java.util.concurrent.TimeUnit;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -11,7 +13,9 @@ import java.util.Map;
 
 @Service
 public class ChatGPTClient {
-    public static String secretKey ="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";
+    @Value("${openai.api-key}")
+    private static String secretKey;
+//    public static String secretKey ="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";
 
     private static final String API_ENDPOINT = "https://api.openai.com/v1/completions";
     private final String apiKey;
@@ -21,7 +25,12 @@ public class ChatGPTClient {
     }
 
     public String sendToAI(String textQuery) throws IOException {
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = new OkHttpClient.Builder()
+                .callTimeout(60, TimeUnit.SECONDS) // Set the call timeout to 60 seconds
+                .connectTimeout(60, TimeUnit.SECONDS) // Set the connection timeout
+                .readTimeout(60, TimeUnit.SECONDS) // Set the read timeout
+                .writeTimeout(60, TimeUnit.SECONDS) // Set the write timeout
+                .build();
 
         MediaType mediaType = MediaType.parse("application/json");
 
