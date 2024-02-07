@@ -9,7 +9,6 @@ public class GeneralViewController implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/redirect-to-queryWithText").setViewName("redirect:/api/gpt/codeGenerationByTable");
-        //TODO to change
         registry.addViewController("/redirect-to-queryWithForm").setViewName("redirect:/api/gpt/codeGenerationByForm");
         //TODO to change
         registry.addViewController("/redirect-to-queryWithImage").setViewName("redirect:/api/gpt/higpt");

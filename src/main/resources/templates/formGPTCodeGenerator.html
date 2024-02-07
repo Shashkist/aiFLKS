@@ -9,12 +9,49 @@
 <body>
 
     <h1>This is the page where you can enter fields in form from the SDS and get the response as the code with getters</h1>
-
+    <h3>Write your AI request of table from SDS - here example:</h3>
+    <img id="exampleIMG" th:src = "@{/images/requestExample.png}" height="250"  >
+    <h3>Here you populate the fields accordingly</h3>
+        <div>
+            <form th:action="@{/api/gpt/codeGenerationByForm/addRow}" method="get">
+                <button type="submit">Add</button>
+            </form>
+        </div>
         <form method="POST" name="plainTextAIGenerator" th:object="${GPTObject}">
-            <h3>Write your AI request of table from SDS - here example:</h3>
-            <img id="exampleIMG" th:src = "@{/images/requestExample.png}" height="250"  >
-            <h3>Here you put your table: just copy+paste it from word</h3>
-            <textarea th:field="*{requestText}" id="requestText" />
+
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Source From IDIT</th>
+                        <th>Mandatory</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="gptFormLine: ${GPTObject.gptFormLineList}">
+                        <td>
+                            <input type="text" th:value="${gptFormLine.fieldName}">
+                        </td>
+                        <td>
+                            <input type="text" th:value="${gptFormLine.fieldType}">
+                        </td>
+                        <td>
+                            <input type="text" th:value="${gptFormLine.sourceFromIdit}">
+                        </td>
+                        <td>
+                            <input type="text" th:value="${gptFormLine.isMandatory}">
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+
+
             <button>Submit</button>
         </form>
 

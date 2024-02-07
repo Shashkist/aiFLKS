@@ -13,8 +13,10 @@ public class GPTObject {
     private List<GPTFormLine> gptFormLineList = new ArrayList<>(0);
 
 
-
-
-
-
+    public void addNewRowToTheList() {
+        GPTFormLine gptFormLine = new GPTFormLine();
+        gptFormLine.setFieldName("Stam2");
+        gptFormLine.setFieldType("text");
+        getGptFormLineList().add(gptFormLine);
+    }
 }

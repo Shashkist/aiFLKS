@@ -2,6 +2,7 @@ package com.flksTeam.aiFLKS.controller;
 
 
 import com.flksTeam.aiFLKS.chatgpt.ChatGPTClient;
+import com.flksTeam.aiFLKS.model.GPTFormLine;
 import com.flksTeam.aiFLKS.model.GPTObject;
 import com.flksTeam.aiFLKS.service.CodeGenerationGPTService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/api/gpt")
+@SessionAttributes("GPTObject")
 public class GPTController {
 
     @Autowired
@@ -24,21 +27,34 @@ public class GPTController {
     @GetMapping()
     @ResponseBody
     public String home() {
-
         return "hello world";
     }
 
     @GetMapping("/higpt")
     @ResponseBody
     public String hiGPT() {
-
         String responseFromGPT = sendToAI("hello world");
         return responseFromGPT;
     }
 
 
     @GetMapping("/codeGenerationByForm")
-    public String codeGenerationByForm() {
+    public String codeGenerationByForm(Model model) {
+        return "formGPTCodeGenerator";
+    }
+
+    @GetMapping("/codeGenerationByForm/addRow")
+    public String addRow(Model model, @ModelAttribute GPTObject gptObject) {
+        gptObject.addNewRowToTheList();
+        model.addAttribute(gptObject);
+        return "formGPTCodeGenerator";
+    }
+
+
+
+
+    @PostMapping("/codeGenerationByForm")
+    public String processForm(Model model) {
         return "formGPTCodeGenerator";
     }
 
@@ -90,7 +106,14 @@ public class GPTController {
 
     @ModelAttribute
     public GPTObject getGptObject() {
-        return new GPTObject();
+        GPTObject gptObject = new GPTObject();
+        List<GPTFormLine> gptFormLineList =  gptObject.getGptFormLineList();
+        if(gptFormLineList== null || gptFormLineList.isEmpty()){
+            GPTFormLine testLine = new GPTFormLine();
+            testLine.setFieldName("STAM");
+            gptFormLineList.add(testLine);
+        }
+        return gptObject;
     }
 
 
