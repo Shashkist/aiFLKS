@@ -2,25 +2,28 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>GPTForm</title>
+    <title>AI GENERATION</title>
     <style>
         /* CSS to make the textarea bigger */
         textarea {
             width: 50%; /* Adjust as needed */
             height: 200px; /* Adjust as needed */
         }
+        #responseText {
+            color:blue;
+        }
     </style>
 </head>
 <body>
+    <h1>This is the page where you can enter plain table text from ISDS and get the response as the code with getters</h1>
 
-
-        <form method="POST" name="gptQueryForm" th:object="${GPTObject}">
+        <form method="POST" name="plainTextAIGenerator" th:object="${GPTObject}">
             <h3>Write your AI request</h3>
             <textarea th:field="*{requestText}" id="requestText" />
             <button>Submit</button>
         </form>
         <div id ="responseText" th:object="${GPTObject}">
-            <p th:text="*{responseText}">text response</p>
+            <textarea th:text="*{responseText}" disabled>text response</textarea>
         </div>
 
 
