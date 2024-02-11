@@ -74,7 +74,7 @@ public class GPTController {
         return response;
     }
 
-    @GetMapping("/")
+    @GetMapping("/queryGPT")
     public String queryGPT() {
         return "gptForm";
     }

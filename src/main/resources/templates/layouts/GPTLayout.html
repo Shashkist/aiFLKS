@@ -3,6 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:replace="${title}">Layout Title</title>
+    <link rel="icon" href="/images/img.png" type="image/x-icon">
     <style>
         /* CSS to make the textarea bigger */
         textarea {
@@ -39,6 +40,20 @@
 
         #exampleIMG {
             border:2px solid black;
+        }
+         #welcome {
+            margin: 0;
+            padding: 0;
+            background-image: url('/images/img.png'); /* Set the background image */
+            background-size: cover; /* Cover the entire viewport */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Make the body full height of viewport */
+            text-align: center; /* Center text */
+        }
+        #welcomeh1 {
+            color: white; /* Set text color to white */
         }
     </style>
 </head>
