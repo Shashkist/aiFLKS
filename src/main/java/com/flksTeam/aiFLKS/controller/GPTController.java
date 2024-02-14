@@ -110,7 +110,7 @@ public class GPTController {
         List<GPTFormLine> gptFormLineList =  gptObject.getGptFormLineList();
         if(gptFormLineList== null || gptFormLineList.isEmpty()){
             GPTFormLine testLine = new GPTFormLine();
-            testLine.setFieldName("STAM");
+            testLine.setFieldName("");
             gptFormLineList.add(testLine);
         }
         return gptObject;

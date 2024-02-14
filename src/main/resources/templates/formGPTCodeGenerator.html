@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>AI GENERATION</title>
-
+     <style>
+         h3 {
+            background-color:red;
+         }
+     </style>
 </head>
 <body>
 
@@ -24,8 +28,8 @@
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
-                        <th>Source From IDIT</th>
-                        <th>Mandatory</th>
+                        <th>Description</th>
+                        <th>Target in IDIT</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -40,7 +44,7 @@
                             <input type="text" th:value="${gptFormLine.sourceFromIdit}">
                         </td>
                         <td>
-                            <input type="text" th:value="${gptFormLine.isMandatory}">
+                            <input type="text" th:value="${gptFormLine.tagretInIdit}">
                         </td>
                         <td>
 

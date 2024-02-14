@@ -15,8 +15,8 @@ public class GPTObject {
 
     public void addNewRowToTheList() {
         GPTFormLine gptFormLine = new GPTFormLine();
-        gptFormLine.setFieldName("Stam2");
-        gptFormLine.setFieldType("text");
+        gptFormLine.setFieldName("");
+        gptFormLine.setFieldType("");
         getGptFormLineList().add(gptFormLine);
     }
 }
